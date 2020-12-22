@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://bpmn.io/schema/bpmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="Definitions_1ljr7ty" name="" targetNamespace="http://bpmn.io/schema/bpmn" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <bpmn:process id="holiday" isClosed="false" isExecutable="true" name="请假" processType="None">
+    <bpmn:startEvent id="StartEvent_1" name="开始"/>
+    <bpmn:endEvent id="endEvent" name="结束"/>
+    <bpmn:sequenceFlow id="Flow_0fvt035" sourceRef="StartEvent_1" targetRef="userTask1"/>
+    <bpmn:sequenceFlow id="Flow_14hshlf" sourceRef="userTask1" targetRef="userTask2"/>
+    <bpmn:sequenceFlow id="Flow_0t8hw5n" sourceRef="userTask2" targetRef="userTask3"/>
+    <bpmn:sequenceFlow id="Flow_18rmwmz" sourceRef="userTask3" targetRef="endEvent"/>
+    <bpmn:userTask activiti:assignee="张三" activiti:exclusive="true" camunda:assignee="张三" id="userTask1" name="提交申请"/>
+    <bpmn:userTask activiti:assignee="李四" activiti:exclusive="true" camunda:assignee="李四" id="userTask2" name="审核【部门经理】"/>
+    <bpmn:userTask activiti:assignee="王五" activiti:exclusive="true" camunda:assignee="王五" id="userTask3" name="审核【总经理】"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram documentation="background=#292929;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="holiday">
+      <bpmndi:BPMNShape bpmnElement="StartEvent_1" id="Shape-StartEvent_1">
+        <dc:Bounds height="32.0" width="32.0" x="192.0" y="72.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endEvent" id="Shape-endEvent">
+        <dc:Bounds height="32.0" width="32.0" x="192.0" y="502.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask1" id="Shape-userTask1">
+        <dc:Bounds height="80.0" width="100.0" x="160.0" y="150.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="80.0" width="100.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask2" id="Shape-userTask2">
+        <dc:Bounds height="75.0" width="120.0" x="145.0" y="280.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="75.0" width="120.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask3" id="Shape-userTask3">
+        <dc:Bounds height="80.0" width="100.0" x="160.0" y="380.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="80.0" width="100.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="Flow_14hshlf" id="BPMNEdge_Flow_14hshlf" sourceElement="userTask1" targetElement="userTask2">
+        <di:waypoint x="210.0" y="230.0"/>
+        <di:waypoint x="210.0" y="280.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Flow_18rmwmz" id="BPMNEdge_Flow_18rmwmz" sourceElement="userTask3" targetElement="endEvent">
+        <di:waypoint x="208.0" y="460.0"/>
+        <di:waypoint x="208.0" y="502.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Flow_0t8hw5n" id="BPMNEdge_Flow_0t8hw5n" sourceElement="userTask2" targetElement="userTask3">
+        <di:waypoint x="210.0" y="355.0"/>
+        <di:waypoint x="210.0" y="380.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Flow_0fvt035" id="BPMNEdge_Flow_0fvt035" sourceElement="StartEvent_1" targetElement="userTask1">
+        <di:waypoint x="208.0" y="104.0"/>
+        <di:waypoint x="208.0" y="150.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
